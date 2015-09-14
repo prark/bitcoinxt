@@ -17,6 +17,7 @@ BUILD_COMMAND="./autogen.sh && ./configure --disable-wallet && make -j2"
 
 function setup_arm_chroot {
     # Host dependencies
+    sudo apt-get update
     sudo apt-get install -qq -y ${HOST_DEPENDENCIES}
 
     # Create chrooted environment

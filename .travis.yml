@@ -1,5 +1,5 @@
 language: erlang
-
+sudo: true
 env:
   - ARCH=x64
   - ARCH=arm

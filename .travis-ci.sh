@@ -12,9 +12,6 @@ HOST_DEPENDENCIES="debootstrap qemu-user-static binfmt-support sbuild"
 # Debian package dependencies for the chrooted environment
 GUEST_DEPENDENCIES="build-essential git m4 sudo python libtool autoconf libssl-dev libboost-all-dev libcurl4-openssl-dev"
 
-# Command used to run the tests
-BUILD_COMMAND="./autogen.sh && ./configure --disable-wallet && make -j2"
-
 function setup_arm_chroot {
     # Host dependencies
     sudo apt-get update
@@ -64,7 +61,7 @@ else
   fi
 fi
 
-echo "Running tests"
+echo "Running build"
 echo "Environment: $(uname -a)"
 
-${BUILD_COMMAND}
+./autogen.sh && ./configure --disable-wallet && make -j2

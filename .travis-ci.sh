@@ -10,7 +10,7 @@ CHROOT_ARCH=armhf
 HOST_DEPENDENCIES="debootstrap qemu-user-static binfmt-support sbuild"
 
 # Debian package dependencies for the chrooted environment
-GUEST_DEPENDENCIES="build-essential git m4 sudo python libtool autoconf libssl-dev libboost-all-dev libcurl4-openssl-dev"
+GUEST_DEPENDENCIES="build-essential sudo autoconf libtool libssl-dev libboost-all-dev libcurl4-openssl-dev"
 
 function setup_arm_chroot {
     # Host dependencies
@@ -64,4 +64,5 @@ fi
 echo "Running build"
 echo "Environment: $(uname -a)"
 
-./autogen.sh && ./configure --disable-wallet && make -j2
+./autogen.sh && ./configure --disable-wallet --without-miniupnpc --disable-tests --prefix=./BITOUTPUT && make -j4
+ls -l BITOUTPUT

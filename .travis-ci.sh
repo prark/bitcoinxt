@@ -64,5 +64,5 @@ fi
 echo "Running build"
 echo "Environment: $(uname -a)"
 
-./autogen.sh && ./configure --disable-wallet --without-miniupnpc --disable-tests --prefix=./BITOUTPUT && make -j4
-ls -l BITOUTPUT
+./autogen.sh && ./configure --disable-wallet --without-miniupnpc --disable-tests --prefix=${TRAVIS_BUILD_DIR}/BITOUTPUT && make -j4
+ls -l ${CHROOT_DIR}/${TRAVIS_BUILD_DIR}/BITOUTPUT

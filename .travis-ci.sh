@@ -10,7 +10,7 @@ CHROOT_ARCH=armhf
 HOST_DEPENDENCIES="debootstrap qemu-user-static binfmt-support sbuild"
 
 # Debian package dependencies for the chrooted environment
-GUEST_DEPENDENCIES="build-essential git m4 sudo python g++-arm-linux-gnueabihf autoconf"
+GUEST_DEPENDENCIES="build-essential git m4 sudo python autoconf"
 
 # Command used to run the tests
 BUILD_COMMAND="./autogen.sh && ./configure --disable-wallet && make -j2"
